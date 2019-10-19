@@ -43,7 +43,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'rails-i18n', '~> 5.1'
 gem 'tty-spinner'
-
+gem 'faker'                 # gerador de dados falsos para campos
+# gem 'pry-rails'             # visualizar melhor o resultado dos selects
+gem 'awesome_print'         # subistituir o pry-rails
 # ------------------------------------------------------------------------------
 
 group :development, :test do
