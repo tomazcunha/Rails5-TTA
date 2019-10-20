@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
   namespace :admins_backoffice do
     get 'welcome/index'   # Dashboard
-    resources :admins, only: [:index, :edit, :update]   # Administradores
+    # resources :admins, only: [:index, :edit, :update]   # Administradores
+    resources :admins, except: [:delete]   # cria todas as rotas menos a 'delete'
   end
 
   devise_for :users
