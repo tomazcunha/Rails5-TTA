@@ -9,12 +9,27 @@
 
 <!-- <%= @admin.inspect %> -->
 
+<% if @admin.errors.any?  %>
+<div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+    <% @admin.errors.full_messages.each do |mensagem| %>
+        <ul>
+            <li><%= mensagem %></li>
+        </ul>
+    <% end %>
+</div>
+<% end %>
+
 <div class="panel panel-default">
+
     <div class="panel-heading">
-        Basic Form Elements
+        Editando Administrador
     </div>
+
     <div class="panel-body">
         <div class="row">
+
             <div class="col-lg-6">
                 <%= form_with(model: [:admins_backoffice, @admin ], local: true ) do |form| %>
 
