@@ -8,6 +8,14 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   end
 
   def update
+    # "admin"=>{"email"=>"amos_oconner@starklarson.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"2"}
+
+    if params[:admin][:password].blank? && params[:admin][:password_confirmation].blank?
+      params[:admin].extract!(:password, :password_confirmation)
+    end
+      # se o adm não passar a senha e a confirmação, então a intenção dele é atualizar só o email,
+      # assim, precisamos retirar este dois valores do hash que vai ser feito o update.
+
     @admin = Admin.find(params[:id])
     params_admin = params.require(:admin).permit(:email, :password, :password_confirmation)
 
