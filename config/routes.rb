@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     get 'welcome/index'   # Dashboard
     # resources :admins, only: [:index, :edit, :update]   # Administradores
     # resources :admins, except: [:destroy]   # cria todas as rotas menos a 'destroy'
-    resources :admins # todas as rotas habilitadas
+    resources :admins     # todas as rotas habilitadas
+    resources :subjects   # Assuntos/Áreas
   end
 
   devise_for :users
