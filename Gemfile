@@ -46,6 +46,8 @@ gem 'tty-spinner'
 gem 'faker'                 # gerador de dados falsos para campos
 # gem 'pry-rails'             # visualizar melhor o resultado dos selects
 gem 'awesome_print'         # subistituir o pry-rails
+gem 'kaminari'              # paginação das listas
+gem 'kaminari-i18n'         # tradução para o kaminari
 # ------------------------------------------------------------------------------
 
 group :development, :test do
