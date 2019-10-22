@@ -38,7 +38,7 @@
                         <%= form.label :subject %>
                         <!-- <%= form.label :subject_id %> -->
 
-                        <%= form.collection_select(:subject_id, Subject.all, :id, :description, {}, { class:"form-control" }) %>
+                        <%= form.collection_select(:subject_id, @subjects, :id, :description, {}, { class:"form-control" }) %>
                         <!-- form           = referente ao obk question -->
                         <!-- :subject_id    = variavel que guarada a escolha -->
                         <!-- Subject.all    = retornara todos os subjects -->
