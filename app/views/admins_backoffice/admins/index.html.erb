@@ -5,7 +5,8 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Listando Administradores</h1>
+      <!-- <h1 class="page-header">Listando Administradores</h1> -->
+        <h1 class="page-header"><%= t('messages.listing', model: @admins.model_name.human(count: 2)) %></h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -31,17 +32,11 @@
                 <td><%= admin.id %></td>
                 <td><%= admin.email %></td>
                 <td style="width: 100px">
-                    <!-- <button type="button" class="btn btn-primary btn-circle">
-                        <i class="fa fa-edit"></i>
-                    </button> -->
                     <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-primary btn-circle" do %>
                         <i class="fa fa-edit"></i>
                     <% end %>
 
-                    <!-- <button type="button" class="btn btn-danger btn-circle">
-                        <i class="fa fa-minus"></i>
-                    </button> -->
-                    <%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-circle", data: { confirm: "Deseja realmente excluir?"} do %>
+                    <%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-circle", data: { confirm: t('messages.confirm_with', item: admin.email) } do %>
                         <i class="fa fa-minus"></i>
                     <% end %>
                 </td>
