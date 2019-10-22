@@ -7,3 +7,4 @@ update	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answ
 destroy	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/subjects_controller.rb	/^  def destroy$/;"	method	line:34	class:AdminsBackoffice
 params_subject	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/subjects_controller.rb	/^  def params_subject$/;"	method	line:44	class:AdminsBackoffice
 set_subject	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/subjects_controller.rb	/^  def set_subject$/;"	method	line:48	class:AdminsBackoffice
+Subject	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/models/subject.rb	/^class Subject < ApplicationRecord$/;"	class	line:1
