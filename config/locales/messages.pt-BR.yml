@@ -1,0 +1,5 @@
+'pt-BR':
+  messages:
+    # listing: Listando
+    listing: Listando %{model}
+    confirm_with: Você realmente deseja excluir "%{item}" ?
