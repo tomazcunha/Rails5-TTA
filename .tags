@@ -8,3 +8,12 @@ destroy	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_ans
 params_subject	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/subjects_controller.rb	/^  def params_subject$/;"	method	line:44	class:AdminsBackoffice
 set_subject	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/subjects_controller.rb	/^  def set_subject$/;"	method	line:48	class:AdminsBackoffice
 Subject	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/models/subject.rb	/^class Subject < ApplicationRecord$/;"	class	line:1
+AdminsBackoffice	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/questions_controller.rb	/^class AdminsBackoffice::QuestionsController < AdminsBackofficeController$/;"	class	line:1
+index	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/questions_controller.rb	/^  def index$/;"	method	line:5	class:AdminsBackoffice
+new	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/questions_controller.rb	/^  def new$/;"	method	line:10	class:AdminsBackoffice
+create	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/questions_controller.rb	/^  def create$/;"	method	line:14	class:AdminsBackoffice
+edit	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/questions_controller.rb	/^  def edit$/;"	method	line:23	class:AdminsBackoffice
+update	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/questions_controller.rb	/^  def update$/;"	method	line:26	class:AdminsBackoffice
+destroy	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/questions_controller.rb	/^  def destroy$/;"	method	line:34	class:AdminsBackoffice
+params_question	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/questions_controller.rb	/^  def params_question$/;"	method	line:44	class:AdminsBackoffice
+set_question	/home/tomaz19/1_Tomaz/Projetos/0_tom-ruby-on-rails/modulo_05/time_to_answer/app/controllers/admins_backoffice/questions_controller.rb	/^  def set_question$/;"	method	line:48	class:AdminsBackoffice
