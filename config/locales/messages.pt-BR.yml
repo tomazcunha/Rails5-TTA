@@ -1,7 +1,7 @@
 'pt-BR':
   messages:
-    # listing: Listando
     listing: Listando %{model}
     editing: Editando %{model}
     new: Novo %{model}
     confirm_with: Você realmente deseja excluir "%{item}" ?
+    save: Salvar

@@ -32,20 +32,28 @@
                     <div class="form-group">
                         <%= form.label :email %>
 
-                        <%= form.text_field :email, class:"form-control", placeholder:"Informe o email" %>
+                        <!-- <%= form.text_field :email, class:"form-control", placeholder:"Informe o email" %> -->
+                        <%= form.text_field :email,
+                                            class:"form-control",
+                                            placeholder: "#{t('placeholders.informing_o')}" " #{t('activerecord.attributes.admin.email')}"  %>
+
                     </div>
 
                     <div class="form-group">
                         <%= form.label :password %>
-                        <%= form.password_field :password, class:"form-control", placeholder:"Informe a senha" %>
+                        <%= form.password_field :password,
+                                                class:"form-control",
+                                                placeholder:"#{t('placeholders.informing_a')}" " #{t('activerecord.attributes.admin.password')}" %>
                     </div>
 
                     <div class="form-group">
                         <%= form.label :password_confirmation %>
-                        <%= form.password_field :password_confirmation, class:"form-control", placeholder:"Confirme a senha" %>
+                        <%= form.password_field :password_confirmation,
+                                                class:"form-control",
+                                                placeholder:"#{t('placeholders.confirm_a')}" " #{t('activerecord.attributes.admin.password')}" %>
                     </div>
 
-                    <button type="submit" class="btn btn-default">Salvar</button>
+                    <button type="submit" class="btn btn-default"><%= t('messages.save')%></button>
 
                 <% end %>
             </div>
