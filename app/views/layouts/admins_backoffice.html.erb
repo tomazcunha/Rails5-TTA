@@ -138,15 +138,14 @@
     <%= javascript_include_tag 'admins_backoffice' %>
 
     <% if notice %>
-        <!-- <script type="text/javascript"> -->
         <%= javascript_tag do %>
             $.bootstrapGrowl("<%= notice %>", {
               // ele: 'body', // which element to append to
               type: 'info', // (null, 'info', 'danger', 'success')
-              offset: {from: 'top', amount: 20}, // 'top', or 'bottom'
+              offset: {from: 'top', amount: 10}, // 'top', or 'bottom'
               // offset: {from: 'bottom', amount: 20}, // 'top', or 'bottom'
               // align: 'right', // ('left', 'right', or 'center')
-              align: 'center', // ('left', 'right', or 'center')
+              align: 'right', // ('left', 'right', or 'center')
               // width: 250, // (integer, or 'auto')
               width: 450, // (integer, or 'auto')
               delay: 8000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
@@ -154,7 +153,6 @@
               stackup_spacing: 10 // spacing between consecutively stacked growls.
             });
         <% end %>
-        <!-- </script> -->
     <% end %>
 
 

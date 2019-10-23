@@ -1,19 +1,100 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>TimeToAnswer</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'application' %>
+
+
+    <%= stylesheet_link_tag    'admin_devise' %> <!-- criado para setar os css deste layout -->
+        <!-- Já setados em app/assets/stylesheets/admin_devise.scss -->
+            <!-- Bootstrap Core CSS -->
+            <!-- <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+            <!-- MetisMenu CSS -->
+            <!-- <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet"> -->
+            <!-- Custom CSS -->
+            <!-- <link href="../dist/css/sb-admin-2.css" rel="stylesheet"> -->
+            <!-- Custom Fonts -->
+            <!-- <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+
+
+    <!-- JavaScript no fim do body -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div class="container">
+        <%= yield %>
+    </div>
+
     <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
 
-  </head>
 
-  <body>
-    <h1>Layouts Admin Devise</h1>
-    <%= yield %>
-  </body>
+    <%= javascript_include_tag 'admin_devise' %> <!-- criado para setar os js deste layout -->
+        <!-- Já setados em app/assets/javascripts/admin_devise.coffee-->
+            <!-- jQuery -->
+            <!-- <script src="../vendor/jquery/jquery.min.js"></script> -->
+            <!-- Bootstrap Core JavaScript -->
+            <!-- <script src="../vendor/bootstrap/js/bootstrap.min.js"></script> -->
+            <!-- Metis Menu Plugin JavaScript -->
+            <!-- <script src="../vendor/metisMenu/metisMenu.min.js"></script> -->
+            <!-- Custom Theme JavaScript -->
+            <!-- <script src="../dist/js/sb-admin-2.js"></script> -->
+
+
+
+    <!-- estava em app/views/admins/sessions/new.html.erb -->
+    <!-- sistema de mensagem -->
+    <!-- faz com que as mensagens de erros apareçam na tela, não vem por padrão -->
+    <!-- ex: " Invalid Email or password. Email" -->
+    <!-- <% flash.each do | key, value | %>
+      <div class="flash <%= key %>">
+        <%= value %>
+      </div>
+    <% end %> -->
+
+    <% if flash %>
+        <% flash.each do | key, value | %>
+            <%= javascript_tag do %>
+                $.bootstrapGrowl("<%= value %>", {
+                  // ele: 'body', // which element to append to
+                  type: 'danger', // (null, 'info', 'danger', 'success')
+                  offset: {from: 'top', amount: 10}, // 'top', or 'bottom'
+                  // offset: {from: 'bottom', amount: 20}, // 'top', or 'bottom'
+                  // align: 'right', // ('left', 'right', or 'center')
+                  align: 'center', // ('left', 'right', or 'center')
+                  // width: 250, // (integer, or 'auto')
+                  width: 360, // (integer, or 'auto')
+                  delay: 8000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
+                  allow_dismiss: true, // If true then will display a cross to close the popup.
+                  stackup_spacing: 10 // spacing between consecutively stacked growls.
+                });
+            <% end %>
+        <% end %>
+    <% end %>
+
+
+</body>
+
 </html>
