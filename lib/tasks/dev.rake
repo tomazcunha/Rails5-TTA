@@ -67,25 +67,15 @@ namespace :dev do
     Subject.all.each do |subject|
       rand(5..10).times do |i|  # times vai contar as vezes entre 5 e 10. 'i' não é usado.
 
-        # criando uma questão
-        params = { question: {
-          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
-          subject: subject,
-          answers_attributes: []
-        }}
+        # criando uma questão, sem respostas
+        params = create_question_params(subject)
+
+        answers_array = params[:question][:answers_attributes]
 
         # criando respostas para essa questão
-        rand(2..5).times do |j|
-          params[:question][:answers_attributes].push(
-            { description: Faker::Lorem.sentence, correct: false }
-          )
-        end
+        add_answers(answers_array)
 
-        # quantas respostas foram?
-        index = rand(params[:question][:answers_attributes].size)
-
-        # true para uma destas respostas
-        params[:question][:answers_attributes][index] = { description: Faker::Lorem.sentence, correct: true }
+        elect_true_answer(answers_array)
 
         # terminda de gravar a questão
         Question.create!(params[:question])
@@ -95,6 +85,37 @@ namespace :dev do
   end
 
   private
+
+  def create_question_params(subject = Subject.all.sample) # sample caso não venha um subject
+    { question: {
+        description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+        subject: subject,
+        answers_attributes: []
+      }
+    }
+  end
+
+  # gerando as respostas
+  def create_answers_params(correct = false)
+    { description: Faker::Lorem.sentence, correct: correct }
+  end
+
+  # adicionando as respotas geradas, no array
+  def add_answers(answers_array = [])
+    rand(2..5).times do |j|
+      answers_array.push(
+        create_answers_params
+      )
+    end
+  end
+
+  def elect_true_answer(answers_array = [])
+    # quantas respostas foram?
+    selected_index = rand(answers_array.size)
+
+    # true para uma destas respostas
+    answers_array[selected_index] = create_answers_params(true)
+  end
 
   def show_spinner(msg_start, msg_end = "Concluído!")
     spinner = TTY::Spinner.new("[:spinner] #{msg_start} ...")
