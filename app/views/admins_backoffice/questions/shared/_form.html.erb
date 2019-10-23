@@ -50,6 +50,24 @@
                         <!-- :description   = o valor que será mostrado -->
                     </div>
 
+                    <div id='answers'>
+                        <%= form.fields_for :answers do |answer| %>
+                            <%= render partial: "answer_fields", local: { f: answer }%>
+                        <% end %>
+
+                        <%= link_to_add_association 'Adicionar Resposta', form, :answers %>
+                    </div>
+
+                    <!-- app/views/admins_backoffice/questions/_answer_fields.html.erb -->
+
+                    <!-- id da div é obrigratório -->
+                    <!-- fields_for é um formulário aniado com o formulário atual -->
+                    <!-- :answers refere-se ao id -->
+                    <!-- a partial precisa estar na rails de question -->
+                    <!-- "answer_fields" == _answer_fields.html.erb  -->
+                    <!-- enviarndo "f" para o formulário da partial com o valor de "answer" -->
+
+
                     <button type="submit" class="btn btn-default"><%= t('button.save')%></button>
 
                 <% end %>
