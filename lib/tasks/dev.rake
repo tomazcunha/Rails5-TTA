@@ -66,11 +66,30 @@ namespace :dev do
   task add_answers_and_questions: :environment do
     Subject.all.each do |subject|
       rand(5..10).times do |i|  # times vai contar as vezes entre 5 e 10. 'i' não é usado.
-        Question.create!(
+
+        # criando uma questão
+        params = { question: {
           description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
-          subject: subject
-          # subject_id: subject.id # de forma explicita, mas não precisa
-        )
+          subject: subject,
+          answers_attributes: []
+        }}
+
+        # criando respostas para essa questão
+        rand(2..5).times do |j|
+          params[:question][:answers_attributes].push(
+            { description: Faker::Lorem.sentence, correct: false }
+          )
+        end
+
+        # quantas respostas foram?
+        index = rand(params[:question][:answers_attributes].size)
+
+        # true para uma destas respostas
+        params[:question][:answers_attributes][index] = { description: Faker::Lorem.sentence, correct: true }
+
+        # terminda de gravar a questão
+        Question.create!(params[:question])
+
       end
     end
   end
