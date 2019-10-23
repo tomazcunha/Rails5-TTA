@@ -47,7 +47,12 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
   private
 
   def params_question
-    params.require(:question).permit(:description, :subject_id)
+    # params.require(:question).permit(:description, :subject_id)
+
+    # coccon
+    params.require(:question).permit(:description, :subject_id, answers_attributes: [:id, :description, :correct, :_destroy])
+      # :id         ==> É obrigatório para p coccon
+      # :_destroy   ==>  sinaliza quando queremos apagar uma resposta
   end
 
   def set_question

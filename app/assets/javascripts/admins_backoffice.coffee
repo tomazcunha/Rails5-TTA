@@ -7,7 +7,7 @@
 //= require metismenu/dist/metisMenu
 //= require sb-admin-2
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
-
+//= require cocoon
 
 # time_to_answer/node_modules/jquery/dist/jquery.js
 # time_to_answer/node_modules/bootstrap/dist/js/bootstrap.js

@@ -48,6 +48,7 @@ gem 'faker'                 # gerador de dados falsos para campos
 gem 'awesome_print'         # subistituir o pry-rails
 gem 'kaminari'              # paginação das listas
 gem 'kaminari-i18n'         # tradução para o kaminari
+gem "cocoon"                # adicionando campos extras com jQuery
 # ------------------------------------------------------------------------------
 
 group :development, :test do
