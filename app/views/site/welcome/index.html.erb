@@ -27,4 +27,16 @@
 <% else %>
   <h2>Administrador NÃO está logado!</h2>
 
+  <h4><%= link_to 'site/welcome/index', site_welcome_index_path %></h4>
+  <h4><%= link_to '/admins_backoffice/welcome/index.html', admins_backoffice_welcome_index_path %></h4>
+  <h4><%= link_to '/users_backoffice/welcome/index.html', users_backoffice_welcome_index_path %></h4>
+
+  <h4><%= link_to 'http://localhost:3000/rails/info/routes', 'http://localhost:3000/rails/info/routes' %></h4>
+
+  <h4><%= link_to 'http://localhost:3000/template/startbootstrap-sb-admin-2/pages/index.html', 'http://localhost:3000/template/startbootstrap-sb-admin-2/pages/index.html' %></h4>
+
+  <h4><%= link_to 'http://localhost:3000/template/gentelella/production/index.html', 'http://localhost:3000/template/gentelella/production/index.html' %></h4>
+
+  <h4><%= link_to 'http://localhost:3000/rails/db/', 'http://localhost:3000/rails/db/' %></h4>
+
 <% end %>
