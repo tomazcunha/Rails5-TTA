@@ -32,5 +32,11 @@ module TimeToAnswer
 
   	# Don't generate system test files.
   	config.generators.system_tests = nil
+
+
+    # liberando console gem 'web-console' no ip do Vagrant
+    config.web_console.permissions = '10.0.2.2'
+    config.web_console.whitelisted_ips = '10.0.2.2'
+
   end
 end

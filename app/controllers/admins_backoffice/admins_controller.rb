@@ -3,9 +3,12 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   before_action :set_admin, only: [:edit, :update, :destroy]
 
   def index
+    # console   # executando o console neste ponto.
+
     # @admins = Admin.all
     # @admins = Admin.all.page(params[:page]).per(5)   # paginação com kaminari
     @admins = Admin.all.page(params[:page])   # model controlando a quantidade
+
   end
 
   def new
