@@ -72,6 +72,12 @@
 
                   <ul class="dropdown-menu">
                     <li>
+                    <%= link_to users_backoffice_welcome_index_path do %>
+                        <i class="fa fa-user fa-fw"></i> Perfil
+                    <% end %>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li>
                     <%= link_to destroy_user_session_path, method: :DELETE do %>
                         <i class="fa fa-sign-out fa-fw"></i> Logout
                     <% end %>
@@ -116,6 +122,24 @@
       <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
       <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
       <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+
+    <% if notice %>
+        <%= javascript_tag do %>
+            $.bootstrapGrowl("<%= notice %>", {
+              // ele: 'body', // which element to append to
+              type: 'info', // (null, 'info', 'danger', 'success')
+              offset: {from: 'top', amount: 10}, // 'top', or 'bottom'
+              // offset: {from: 'bottom', amount: 20}, // 'top', or 'bottom'
+              // align: 'right', // ('left', 'right', or 'center')
+              align: 'right', // ('left', 'right', or 'center')
+              // width: 250, // (integer, or 'auto')
+              width: 450, // (integer, or 'auto')
+              delay: 8000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
+              allow_dismiss: true, // If true then will display a cross to close the popup.
+              stackup_spacing: 10 // spacing between consecutively stacked growls.
+            });
+        <% end %>
+    <% end %>
 
 
   </body>
