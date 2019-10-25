@@ -19,14 +19,32 @@ class Question < ApplicationRecord
   # Criando um método de classe para ser chamada no controle 'search' sem precisar instanciar
   # Agora esta pesquisa fica disponívem para qualquer outro controller, só passar os parâmetros.
   # Trazendo a lógica para o Model.
-  def self.search(term, page)
-    Question.includes(:answers)
+  # def self.search(term, page)
+  #   # Question.includes(:answers)
+  #   #   .where("lower(description) LIKE ?", "%#{term.downcase}%")
+  #   #   .page(page)
+  #
+  #   # Não precisa incluir a classe 'Question', ela que está invocando o 'search' então ela já vem referenciada pelo 'self'.
+  #   includes(:answers)
+  #     .where("lower(description) LIKE ?", "%#{term.downcase}%")
+  #     .page(page)
+  # end
+
+  scope :scope_search, -> (term, page){
+    includes(:answers)
       .where("lower(description) LIKE ?", "%#{term.downcase}%")
       .page(page)
-  end
+  }
 
-  def self.last_questions(page)
-    Question.includes(:answers).order('created_at desc').page(page)
-  end
+  # def self.last_questions(page)
+  #   # Question.includes(:answers).order('created_at desc').page(page)
+  #
+  #   # Question = self
+  #   includes(:answers).order('created_at desc').page(page)
+  # end
+
+  scope :scope_last_questions, -> (page){
+    includes(:answers).order('created_at desc').page(page)
+  }
 
 end

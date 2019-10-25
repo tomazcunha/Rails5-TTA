@@ -18,7 +18,7 @@ class Site::WelcomeController < SiteController
     # @questions = Question.includes(:answers).order('created_at desc').page(params[:page])
 
     # Alterando para chamar o método de classe
-    @questions = Question.last_questions(params[:page])
+    @questions = Question.scope_last_questions(params[:page])
 
 
   end

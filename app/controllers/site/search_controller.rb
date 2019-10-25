@@ -27,7 +27,7 @@ class Site::SearchController < SiteController
       # SELECT "questions".* FROM "questions" WHERE (lower(description) LIKE '%velit%')
 
 
-    @questions = Question.search(params[:term], params[:page])
+    @questions = Question.scope_search(params[:term], params[:page])
 
 
   end
