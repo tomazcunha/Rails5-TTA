@@ -23,6 +23,7 @@ Rails.application.config.assets.precompile += %w(
   users_backoffice.js  users_backoffice.css
   admin_devise.js  admin_devise.css
   user_devise.js  user_devise.css
+  site.js site.css
 )
 
   # Erre erro é por que não está mais carregando de forma automética
@@ -30,7 +31,13 @@ Rails.application.config.assets.precompile += %w(
   # no aplication js e css, retiramos o "require tree"
 
 # Também precisamos indicar a precompilação para quem está em 'lib/assets'
-Rails.application.config.assets.precompile += %w( sb-admin-2.js sb-admin-2.css custom.js custom.css img.jpg)
+Rails.application.config.assets.precompile += %w(
+  sb-admin-2.js sb-admin-2.css
+  custom.js custom.css
+  img.jpg
+  surface-fix.css surface-fix.js
+  navbar.css
+)
 
 
 # precompilar quem está em 'vendor/assets'
