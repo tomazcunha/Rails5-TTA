@@ -15,4 +15,18 @@ class Question < ApplicationRecord
 
   paginates_per 5   # kaminari
 
+
+  # Criando um método de classe para ser chamada no controle 'search' sem precisar instanciar
+  # Agora esta pesquisa fica disponívem para qualquer outro controller, só passar os parâmetros.
+  # Trazendo a lógica para o Model.
+  def self.search(term, page)
+    Question.includes(:answers)
+      .where("lower(description) LIKE ?", "%#{term.downcase}%")
+      .page(page)
+  end
+
+  def self.last_questions(page)
+    Question.includes(:answers).order('created_at desc').page(page)
+  end
+
 end

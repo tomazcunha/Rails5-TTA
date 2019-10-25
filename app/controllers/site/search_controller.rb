@@ -21,10 +21,14 @@ class Site::SearchController < SiteController
     # Transformando as palavras em minúsculas.
     # Dependendo do banco de dados, vai ser ignorado ou não as letras maúculas e minúsculas.
     # lower() é uma função d banco de dados
-    @questions = Question.includes(:answers)
-      .where("lower(description) LIKE ?", "%#{params[:term].downcase}%")
-      .page(params[:page])
+    # @questions = Question.includes(:answers)
+    #   .where("lower(description) LIKE ?", "%#{params[:term].downcase}%")
+    #   .page(params[:page])
       # SELECT "questions".* FROM "questions" WHERE (lower(description) LIKE '%velit%')
+
+
+    @questions = Question.search(params[:term], params[:page])
+
 
   end
 end
