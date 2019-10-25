@@ -13,4 +13,6 @@ class Question < ApplicationRecord
     # reject_if: :all_blank   =>  Só salva os preenchidos (conf. do accepts_nested_attributes_for)
     # allow_destroy: true     =>  Para permitir o botão de Apagar
 
+  paginates_per 5   # kaminari
+
 end
