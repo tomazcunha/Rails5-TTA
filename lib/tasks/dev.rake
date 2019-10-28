@@ -84,6 +84,19 @@ namespace :dev do
     end
   end
 
+  desc "Resenta o contador dos assuntos"
+  task reset_subject_counter: :environment do
+    show_spinner("Cadastrando perguntas e respostas...") do
+      Subject.all.each do |subject|
+        Subject.reset_counters(subject.id, :questions)
+      end
+    end
+  end
+  # Subject.find_each do |subject|
+  # É o mesmo que 'all.each'. 'find_each' dá ideia de pegar um único elemento.
+  # Where = muitos elementos
+  # Find  = um único
+
   private
 
   def create_question_params(subject = Subject.all.sample) # sample caso não venha um subject

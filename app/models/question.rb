@@ -1,7 +1,9 @@
 class Question < ApplicationRecord
   # belongs_to :subject   # com belongs_to, quando cadastrar Question, é obrigatório informar o assunto.
   # belongs_to :subject, optional: true         # permitiria cadastrar question sem subject
-  belongs_to :subject, inverse_of: :questions   # evitar erro na hora do cadastro, precisa ter has_many no outro lado.
+  belongs_to :subject, counter_cache: true, inverse_of: :questions
+    # evitar erro na hora do cadastro, precisa ter has_many no outro lado.
+    # counter_cache: true = para o contador de subject
 
   has_many :answers     # plural
 
