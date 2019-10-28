@@ -68,12 +68,6 @@
     <!-- sistema de mensagem -->
     <!-- faz com que as mensagens de erros apareçam na tela, não vem por padrão -->
     <!-- ex: " Invalid Email or password. Email" -->
-    <!-- <% flash.each do | key, value | %>
-      <div class="flash <%= key %>">
-        <%= value %>
-      </div>
-    <% end %> -->
-
     <% if flash %>
         <% flash.each do | key, value | %>
             <%= javascript_tag do %>

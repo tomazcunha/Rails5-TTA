@@ -16,10 +16,6 @@
           </div>
 
           <div>
-            <!-- <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br /> -->
-
             <%= f.password_field :password_confirmation, placeholder: "Confirmação da Senha", class:"form-control" %>
           </div>
 
@@ -30,12 +26,6 @@
           </div>
 
           <div class="clearfix"></div>
-
-          <!-- resource é sempre o user ou o admin -->
-          <!-- Renderizando mensagem de erro usando o template do devise  -->
-          <!-- Se alterarmos a mensagem de erro no app/views/layouts/user_devise.html.erb -->
-          <!-- não precisaremos mais desse render -->
-          <%# render "devise/shared/error_messages", resource: resource %>
 
           <div class="separator">
 
