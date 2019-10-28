@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   namespace :site do
     get 'welcome/index'
     get 'search', to: 'search#questions'
+
+    get 'subject/:subject_id/:subject', to: 'search#subject', as: 'search_subject'
+      # :subject_id vai ser o id do 'assunto' que estou querando filtrar.
+      # :subject_id é como vou receber o número do id na action subject.
+      # as: vou definir o meu nome para essa rota, em vez da sugerida pelo rails.
+
     post 'answer', to: 'answer#question'
   end
   namespace :users_backoffice do

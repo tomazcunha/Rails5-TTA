@@ -31,10 +31,25 @@ class Question < ApplicationRecord
   # end
 
   scope :scope_search, -> (term, page){
-    includes(:answers)
+    includes(:answers, :subject)
       .where("lower(description) LIKE ?", "%#{term.downcase}%")
       .page(page)
   }
+  # No original é "_search_"
+
+
+
+  scope :scope_search_subject, -> (page, subject_id){
+    includes(:answers, :subject)
+    .where(subject_id: subject_id)
+    .page(page)
+  }
+    # Para buscar todas as perguntas (incluindo as respostas) do mesmo (filtro) assunto
+    # E também evitando o n+1, acrescentando o incluide para :subject
+    # question tem a fk subject_id:
+    # .where("lower(description) = ?", "%#{term.downcase}%") # como subject_id é número, pode ser o '='
+
+
 
   # def self.last_questions(page)
   #   # Question.includes(:answers).order('created_at desc').page(page)
@@ -44,7 +59,7 @@ class Question < ApplicationRecord
   # end
 
   scope :scope_last_questions, -> (page){
-    includes(:answers).order('created_at desc').page(page)
+    includes(:answers, :subject).order('created_at desc').page(page)
   }
 
 end

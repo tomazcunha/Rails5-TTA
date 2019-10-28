@@ -29,6 +29,13 @@ class Site::SearchController < SiteController
 
     @questions = Question.scope_search(params[:term], params[:page])
 
-
   end
+
+  def subject
+    @questions = Question.scope_search_subject(params[:page], params[:subject_id])
+  end
+    # O scope é quem fai fazer a pesquisa no banco
+    # params[:page]         => paginanação do kaminari
+    # params[:subject_id]   => o id que será usado na pesquisa
+
 end
