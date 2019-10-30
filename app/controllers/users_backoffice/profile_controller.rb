@@ -4,11 +4,20 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
 
   def edit
     #console   # execurando o console neste ponto.
+
+    # temos o usuário com o 'set_user'
+    @user.build_user_profile if @user.user_profile.blank?
+      # É para criar um perfil do usuário para trabalhar-mos.
+      # Só cria se o perfil estiver em branco. Caso já estejam cadastrados.
+      # build_user_profile, por que o relacionamento é 'has_one'
+      # user_profile.build, se fosse 'has_many'
+
   end
 
   def update
     if @user.update(params_user)
-      sign_in(@user, bypass: true) # para relogar depois de atualizar a senha.
+      # "DESCONTINUADO" sign_in(@user, bypass: true) # para relogar depois de atualizar a senha.
+      bypass_sign_in(@user) # nova forma de usar
       redirect_to users_backoffice_profile_path, notice: "Usuário atualizado com sucesso!"
     else
       render :edit
@@ -22,7 +31,18 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
   end
 
   def params_user
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name,
+                                  :last_name,
+                                  :email,
+                                  :password,
+                                  :password_confirmation,
+                                  user_profile_attributes:[
+                                      :id,
+                                      :address,
+                                      :gender,
+                                      :birthdate
+                                  ]
+                                )
   end
 
   def verify_password
