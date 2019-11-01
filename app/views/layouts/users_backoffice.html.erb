@@ -227,5 +227,13 @@
         <% end %>
     <% end %>
 
+    <!-- Para formatar as datas no formulário -->
+    <!-- Usando classe em vez de id para executar sempre que o datepicker form encontrado -->
+    <%= javascript_tag do %>
+        $( function() {
+          $(".datepicker").datepicker();
+        });
+    <% end %>
+
   </body>
 </html>

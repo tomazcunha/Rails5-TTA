@@ -12,7 +12,11 @@
 //= require nprogress/nprogress
 //= require malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar
 
+# para a mensagem de confirmação(create, update, delete)
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
-  # para a mensagem de confirmação(create, update, delete)
+
+# para formato de data no formaulário
+//= require jquery-ui/ui/widgets/datepicker
+//= require jquery-ui/ui/i18n/datepicker-pt-BR
 
 //= require custom
