@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   # get 'inicio', to: 'welcome#index'
   get 'inicio', to: 'site/welcome#index'
 
+  # Rota para acesso a área administrativa
+  get 'admin', to: 'admins_backoffice/welcome#index'
+
   # root to: 'welcome#index'
   root to: 'site/welcome#index'
 

@@ -7,6 +7,8 @@
       user:
         one: Usuário
         other: Usuários
+      user_profile:
+        one: Perfil do Usuário
       subject:
         one: Assunto
         other: Assuntos
@@ -24,6 +26,17 @@
       user:
         id: Código
         email: Email
+        first_name: Nome
+        last_name: Sobrenome
+        password: Senha
+        password_confirmation: Confirmação de Senha
+        created_at: Criado em
+        updated_at: Atualizado em
+      user_profile:
+        id: Código
+        address: Endereço
+        gender: Sexo
+        birthdate: Data de Nasciento
         created_at: Criado em
         updated_at: Atualizado em
       subject:
