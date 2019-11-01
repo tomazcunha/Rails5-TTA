@@ -7,7 +7,8 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
 
     # temos o usuário com o 'set_user'
     @user.build_user_profile if @user.user_profile.blank?
-      # É para criar um perfil do usuário para trabalhar-mos.
+      # Sem o build, os campos não aparecem se estiverem em branco
+      # Cria um perfil do usuário para trabalhar-mos.
       # Só cria se o perfil estiver em branco. Caso já estejam cadastrados.
       # build_user_profile, por que o relacionamento é 'has_one'
       # user_profile.build, se fosse 'has_many'
@@ -18,7 +19,14 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
     if @user.update(params_user)
       # "DESCONTINUADO" sign_in(@user, bypass: true) # para relogar depois de atualizar a senha.
       bypass_sign_in(@user) # nova forma de usar
-      redirect_to users_backoffice_profile_path, notice: "Usuário atualizado com sucesso!"
+
+      # se o params avatar estiver presente, então ele foi atualizado, redireciona para wellcome
+      if params_user[:user_profile_attributes][:avatar]
+        redirect_to users_backoffice_welcome_index_path, notice: "Avatar atualizado com sucesso!"
+      else
+        redirect_to users_backoffice_profile_path, notice: "Usuário atualizado com sucesso!"
+      end
+
     else
       render :edit
     end
@@ -40,7 +48,8 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
                                       :id,
                                       :address,
                                       :gender,
-                                      :birthdate
+                                      :birthdate,
+                                      :avatar
                                   ]
                                 )
   end
