@@ -17,13 +17,22 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
 
   def update
     if @user.update(params_user)
-      # "DESCONTINUADO" sign_in(@user, bypass: true) # para relogar depois de atualizar a senha.
+
+      # DESCONTINUADO sign_in(@user, bypass: true) # para relogar depois de atualizar a senha.
       bypass_sign_in(@user) # nova forma de usar
 
+      # HTML
       # se o params avatar estiver presente, então ele foi atualizado, redireciona para wellcome
-      if params_user[:user_profile_attributes][:avatar]
-        redirect_to users_backoffice_welcome_index_path, notice: "Avatar atualizado com sucesso!"
-      else
+      # if params_user[:user_profile_attributes][:avatar]
+      #   redirect_to users_backoffice_welcome_index_path, notice: "Avatar atualizado com sucesso!"
+      # else
+      #   redirect_to users_backoffice_profile_path, notice: "Usuário atualizado com sucesso!"
+      # end
+
+      # JS
+      # Se não tiver avatar (html), redirecione
+      # Se tiver (js), executa automaticamente update.js.erb
+      unless params_user[:user_profile_attributes][:avatar]
         redirect_to users_backoffice_profile_path, notice: "Usuário atualizado com sucesso!"
       end
 

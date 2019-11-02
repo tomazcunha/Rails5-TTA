@@ -1,0 +1,23 @@
+$('#avatarModal').modal('hide')
+// localizando o modal pelo seu id avatarModal
+// e mandamos que esse modal fique escondido.
+
+
+document.getElementById('imgAvatarLg').src = "<%= url_for(@user.user_profile.avatar) %>"
+document.getElementById('imgAvatarSm').src = "<%= url_for(@user.user_profile.avatar) %>"
+document.getElementById('imgAvatarMd').src = "<%= url_for(@user.user_profile.avatar) %>"
+
+// Mensagem de confirmação
+$.bootstrapGrowl("Avatar atualizado com sucesso.", {
+  // ele: 'body', // which element to append to
+  type: 'info', // (null, 'info', 'danger', 'success')
+  offset: {from: 'top', amount: 10}, // 'top', or 'bottom'
+  // offset: {from: 'bottom', amount: 20}, // 'top', or 'bottom'
+  // align: 'right', // ('left', 'right', or 'center')
+  align: 'center', // ('left', 'right', or 'center')
+  // width: 250, // (integer, or 'auto')
+  width: 450, // (integer, or 'auto')
+  delay: 8000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
+  allow_dismiss: true, // If true then will display a cross to close the popup.
+  stackup_spacing: 10 // spacing between consecutively stacked growls.
+});
