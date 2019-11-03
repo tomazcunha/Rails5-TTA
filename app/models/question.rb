@@ -17,6 +17,9 @@ class Question < ApplicationRecord
 
   paginates_per 5   # kaminari
 
+  # Callback
+  after_create :set_statistic
+
 
   # Criando um método de classe para ser chamada no controle 'search' sem precisar instanciar
   # Agora esta pesquisa fica disponívem para qualquer outro controller, só passar os parâmetros.
@@ -63,5 +66,12 @@ class Question < ApplicationRecord
   scope :scope_last_questions, -> (page){
     includes(:answers, :subject).order('created_at desc').page(page)
   }
+
+  private
+
+	# Callback para somar total na criação de questões
+	def set_statistic
+	    AdminStatistic.set_total_event(AdminStatistic::EVENTS[:total_questions])
+	end
 
 end

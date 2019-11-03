@@ -18,7 +18,8 @@ class User < ApplicationRecord
     # length:     = quantidade de caracters
     # on: :update = fazer validação só quando for update
 
-
+  # Callback
+  after_create :set_statistic
 
   # Virtual Attributes
   def full_name
@@ -26,4 +27,12 @@ class User < ApplicationRecord
     # [self.first_name, self.last_name].join('---') #
     [self.first_name, self.last_name].join(' ') # juntando os valores do array
   end
+
+  private
+
+  # Callback para somar total na criação de usuário
+  def set_statistic
+    AdminStatistic.set_total_event(AdminStatistic::EVENTS[:total_users])
+  end
+
 end
