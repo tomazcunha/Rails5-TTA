@@ -37,5 +37,5 @@ class ApplicationController < ActionController::Base
       params.extract!(:page)
     end
   end
-  
+
 end
