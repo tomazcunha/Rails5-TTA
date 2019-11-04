@@ -13,10 +13,12 @@ class User < ApplicationRecord
     # allow_destroy = permitir apagar (nesse caso, não)
 
   # Validations
-  validates :first_name, presence: true, length: { minimum: 3 }, on: :update
-    # presence:   = preenchimento obrigatório do campo
-    # length:     = quantidade de caracters
-    # on: :update = fazer validação só quando for update
+  # presence:   = preenchimento obrigatório do campo
+  # length:     = quantidade de caracters
+  # on: :update = fazer validação só quando for update
+  # unless      = para verificar se está vindo do resete de senha, se for true, não valida first_name.
+  validates :first_name, presence: true, length: { minimum: 3 }, on: :update, unless: :reset_password_token_present?
+
 
   # Callback
   after_create :set_statistic
@@ -34,5 +36,14 @@ class User < ApplicationRecord
   def set_statistic
     AdminStatistic.set_total_event(AdminStatistic::EVENTS[:total_users])
   end
+
+  def reset_password_token_present?
+    # !!params[:user][:reset_password_token]
+    !!$global_params[:user][:reset_password_token]
+  end
+  # com "!!", se não estiver não estiver presente, em vez de 'nil' ele vai retornar 'false'
+  # Se estiver presente, no final volta a ser true.
+  # O problema é que a variável 'params' só visível nas views w nos controles.
+  # Precisamos criar uma variável global '$nome_da_variável'
 
 end

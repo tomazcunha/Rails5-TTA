@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_action :check_pagination
 
+  before_action :set_global_params
+
   private
 
   def layout_by_resource
@@ -36,6 +38,10 @@ class ApplicationController < ActionController::Base
     unless user_signed_in?
       params.extract!(:page)
     end
+  end
+
+  def set_global_params
+    $global_params = params
   end
 
 end
